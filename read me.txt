@@ -1,0 +1,49 @@
+PASSPOT AUTHENTICATION:
+===========================
+
+- create your html form with form action
+- install express and other middlewares such as body-parser, 
+-set up express server
+- set up passport
+-Creating a MongoDB Data Store  and  connect mongo to node using mongoose
+- Implementing Local Authentication
+
+.....................
+
+
+const express = require ('express');
+const bodyParser = require ('body-parser');
+//const mongoose = require ()
+const app = express ();
+ const PORT = 5000;
+ var mongoose = require ('mongoose');
+ var session = require ('express-session');
+ var passport = require ('passport');
+ //var auth = require ('./routes/auth') (passport) ;
+ 
+ mongoose.connect('mongodb://localhost:27017/login' , { useNewUrlParser: true } );
+ 
+// app.use ('/auth', auth )
+app.use  (session  ( {
+	secret : 'thesecret',
+	saveUninitialized: false,
+	resave: false
+}));
+app.get ('/', (req, res) => {
+	 res.redirect ('http://localhost:5000/login');
+ } );
+
+
+http://localhost:5000/login
+
+ app.get ('/login', (req, res) => {
+	 res.render ('login.ejs');
+ } );
+ app.get ('/signup', (req, res) => {
+	 res.render ('signup.ejs');
+ } );
+ 
+ app.listen (PORT,  () =>  {
+	 console.log ("Listening on port " + PORT);	 
+ });
+ 
