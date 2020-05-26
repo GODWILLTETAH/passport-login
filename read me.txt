@@ -1,4 +1,4 @@
-PASSPOT AUTHENTICATION:
+PASSPOT AUTHENTICATION LOCAL:
 ===========================
 
 - create your html form with form action
